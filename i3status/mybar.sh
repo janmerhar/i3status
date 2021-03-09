@@ -40,7 +40,7 @@ mycrypto() {
   separator $bg $bg_bar_color
   echo -n ",{"
   echo -n "\"name\":\"id_crypto\","
-  echo -n "\"full_text\":\" $(/home/you/.config/i3status/crypto.py) \","
+  echo -n "\"full_text\":\" $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/crypto.py) \","
   echo -n "\"color\":\"#000000\","
   echo -n "\"background\":\"$bg\","
   common
@@ -52,7 +52,7 @@ myip_public() {
   separator $bg "#FFD180"
   echo -n ",{"
   echo -n "\"name\":\"ip_public\","
-  echo -n "\"full_text\":\" $(/home/you/.config/i3status/ip.py) \","
+  echo -n "\"full_text\":\" $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/ip.py) \","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "},"
@@ -91,7 +91,7 @@ disk_usage() {
   separator $bg "#2E7D32"
   echo -n ",{"
   echo -n "\"name\":\"id_disk_usage\","
-  echo -n "\"full_text\":\"  $(/home/you/.config/i3status/disk.py)%\","
+  echo -n "\"full_text\":\"  $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/disk.py)%\","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "}"
@@ -100,7 +100,7 @@ disk_usage() {
 memory() {
   echo -n ",{"
   echo -n "\"name\":\"id_memory\","
-  echo -n "\"full_text\":\"  $(/home/you/.config/i3status/memory.py)%\","
+  echo -n "\"full_text\":\"  $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/memory.py)%\","
   echo -n "\"background\":\"#3949AB\","
   common
   echo -n "}"
@@ -109,7 +109,7 @@ memory() {
 cpu_usage() {
   echo -n ",{"
   echo -n "\"name\":\"id_cpu_usage\","
-  echo -n "\"full_text\":\"  $(/home/you/.config/i3status/cpu.py)% \","
+  echo -n "\"full_text\":\"  $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/cpu.py)% \","
   echo -n "\"background\":\"#3949AB\","
   common
   echo -n "},"
@@ -120,7 +120,7 @@ meteo() {
   separator $bg "#3949AB"
   echo -n ",{"
   echo -n "\"name\":\"id_meteo\","
-  echo -n "\"full_text\":\" $(/home/you/.config/i3status/meteo.py) \","
+  echo -n "\"full_text\":\" $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/meteo.py) \","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "},"
@@ -131,7 +131,7 @@ mydate() {
   separator $bg "#546E7A"
   echo -n ",{"
   echo -n "\"name\":\"id_time\","
-  echo -n "\"full_text\":\"  $(date "+%a %d/%m %H:%M") \","
+  echo -n "\"full_text\":\"  $(date "+%a %d. %m. %y %H:%M") \","
   echo -n "\"color\":\"#000000\","
   echo -n "\"background\":\"$bg\","
   common

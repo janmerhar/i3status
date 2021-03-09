@@ -5,7 +5,7 @@
 #   status_command exec /home/you/.config/i3status/mybar.sh
 # }
 
-bg_bar_color="#282A36"
+bg_bar_color="#000000"
 
 # Print a left caret separator
 # @params {string} $1 text color, ex: "#FF0000"
@@ -164,13 +164,13 @@ battery0() {
 volume() {
   local bg="#673AB7"
   separator $bg $bg_separator_previous  
-  vol=$(pamixer --get-volume)
+  vol=$(amixer -D pulse get Master | awk -F 'Left:|[][]' 'BEGIN {RS=""}{ print $3 }' | awk -F 'Left:|[][]' 'BEGIN {RS="%"}{ print $1 }{RS=""}{RS=""}')
   echo -n ",{"
   echo -n "\"name\":\"id_volume\","
   if [ $vol -le 0 ]; then
-    echo -n "\"full_text\":\"  ${vol}% \","
+    echo -n "\"full_text\":\"  ${vol} % \","
   else
-    echo -n "\"full_text\":\"  ${vol}% \","
+    echo -n "\"full_text\":\"  ${vol} % \","
   fi
   echo -n "\"background\":\"$bg\","
   common

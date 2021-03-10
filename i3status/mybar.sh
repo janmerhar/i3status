@@ -52,7 +52,7 @@ myip_public() {
   separator $bg "#FFD180"
   echo -n ",{"
   echo -n "\"name\":\"ip_public\","
-  echo -n "\"full_text\":\" $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/ip.py) \","
+  echo -n "\"full_text\":\" BLANK_FIELD \","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "},"
@@ -69,7 +69,7 @@ myvpn_on() {
   bg_separator_previous=$bg
   echo -n ",{"
   echo -n "\"name\":\"id_vpn\","      
-  echo -n "\"full_text\":\" ${icon} VPN \","
+  echo -n "\"full_text\":\" ${icon} BLANK_FIELD \","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "},"
@@ -91,7 +91,7 @@ disk_usage() {
   separator $bg "#2E7D32"
   echo -n ",{"
   echo -n "\"name\":\"id_disk_usage\","
-  echo -n "\"full_text\":\"  $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/disk.py)%\","
+  echo -n "\"full_text\":\" root $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/disk.py) %\","
   echo -n "\"background\":\"$bg\","
   common
   echo -n "}"
@@ -100,7 +100,7 @@ disk_usage() {
 memory() {
   echo -n ",{"
   echo -n "\"name\":\"id_memory\","
-  echo -n "\"full_text\":\"  $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/memory.py)%\","
+  echo -n "\"full_text\":\" RAM $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/memory.py) %\","
   echo -n "\"background\":\"#3949AB\","
   common
   echo -n "}"
@@ -109,7 +109,7 @@ memory() {
 cpu_usage() {
   echo -n ",{"
   echo -n "\"name\":\"id_cpu_usage\","
-  echo -n "\"full_text\":\"  $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/cpu.py)% \","
+  echo -n "\"full_text\":\" CPU $(/home/kubuntu-i5-4460/.config/i3/i3status/i3status/cpu.py) % \","
   echo -n "\"background\":\"#3949AB\","
   common
   echo -n "},"
@@ -215,49 +215,8 @@ do
   mydate
   battery0
   volume
-  systemupdate
-  logout
+  # systemupdate
+  # logout
   echo "]"
 	sleep 5
 done) &
-
-# click events
-while read line;
-do
-  # echo $line > /home/you/gitclones/github/i3/tmp.txt
-  # {"name":"id_vpn","button":1,"modifiers":["Mod2"],"x":2982,"y":9,"relative_x":67,"relative_y":9,"width":95,"height":22}
-
-  # VPN click
-  if [[ $line == *"name"*"id_vpn"* ]]; then
-    alacritty -e /home/you/.config/i3status/click_vpn.sh &
-
-  # CHECK UPDATES
-  elif [[ $line == *"name"*"id_systemupdate"* ]]; then
-    alacritty -e /home/you/.config/i3status/click_checkupdates.sh &
-
-  # CPU
-  elif [[ $line == *"name"*"id_cpu_usage"* ]]; then
-    alacritty -e htop &
-
-  # TIME
-  elif [[ $line == *"name"*"id_time"* ]]; then
-    alacritty -e /home/you/.config/i3status/click_time.sh &
-
-  # METEO
-  elif [[ $line == *"name"*"id_meteo"* ]]; then
-    xdg-open https://openweathermap.org/city/2986140 > /dev/null &
-
-  # CRYPTO
-  elif [[ $line == *"name"*"id_crypto"* ]]; then
-    xdg-open https://www.livecoinwatch.com/ > /dev/null &
-
-  # VOLUME
-  elif [[ $line == *"name"*"id_volume"* ]]; then
-    alacritty -e alsamixer &
-
-  # LOGOUT
-  elif [[ $line == *"name"*"id_logout"* ]]; then
-    i3-nagbar -t warning -m 'Log out ?' -b 'yes' 'i3-msg exit' > /dev/null &
-
-  fi  
-done

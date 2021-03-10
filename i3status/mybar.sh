@@ -18,8 +18,8 @@ separator() {
   echo -n "\"border\":\"$bg_bar_color\","
   echo -n "\"border_left\":0,"
   echo -n "\"border_right\":0,"
-  echo -n "\"border_top\":2,"
-  echo -n "\"border_bottom\":2,"
+  echo -n "\"border_top\":0,"
+  echo -n "\"border_bottom\":0,"
   echo -n "\"color\":\"$1\","
   echo -n "\"background\":\"$2\""
   echo -n "}"
@@ -29,8 +29,8 @@ common() {
   echo -n "\"border\": \"$bg_bar_color\","
   echo -n "\"separator\":false,"
   echo -n "\"separator_block_width\":0,"
-  echo -n "\"border_top\":2,"
-  echo -n "\"border_bottom\":2,"
+  echo -n "\"border_top\":0,"
+  echo -n "\"border_bottom\":0,"
   echo -n "\"border_left\":0,"
   echo -n "\"border_right\":0"
 }
@@ -218,7 +218,7 @@ do
   systemupdate
   logout
   echo "]"
-	sleep 10
+	sleep 5
 done) &
 
 # click events
